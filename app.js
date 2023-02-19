@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const userRoutes = require("./routes/user.routes");
+const questionRoutes = require("./routes/question.routes");
 
 
 app.use(cors());
@@ -10,6 +11,8 @@ app.use(express.json());
 
 // User routes
 app.use('/', userRoutes)
+
+app.use('/', questionRoutes)
 
 
 app.get("/", (req, res) => {

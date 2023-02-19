@@ -37,7 +37,6 @@ router.route("/user")
         data: product,
       });
     } catch (error) {
-
       res.status(400).send({
         status: "Field!",
         message: "Data inserted Fail",

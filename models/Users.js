@@ -17,10 +17,10 @@ const userSchema = mongoose.Schema({
       required: [true, "Please provide a phone"],      
     }
     
-  })
+})
   
   // SCHEMA ->  MODEL -> QUERY
   
-  const User = mongoose.model('user', userSchema);
+const User = mongoose.model('user', userSchema);
 
-  module.exports = User;
+module.exports = User;
