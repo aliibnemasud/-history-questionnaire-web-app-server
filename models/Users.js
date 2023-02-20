@@ -12,9 +12,10 @@ const userSchema = mongoose.Schema({
       type: String,
       required: [true, "Please provide a email"],      
     },
-    phone: {
+    
+    role: {
       type: String,
-      required: [true, "Please provide a phone"],      
+      default: "user"          
     }
     
 })
