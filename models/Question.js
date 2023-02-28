@@ -8,7 +8,11 @@ const questionSchema = mongoose.Schema({
     email: {
       type: String,
       required: true
-    }   
+    },   
+    status: {
+      type: String,
+      default: "in progress"
+    }
 })
   
   // SCHEMA ->  MODEL -> QUERY

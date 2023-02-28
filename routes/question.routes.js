@@ -88,7 +88,8 @@ router.route("/myQuestions").get(verifyJwt, async (req, res, next) => {
   }
 });
 
-router.route("/questions/:id").get(async (req, res, next) => {
+router.route("/questions/:id")
+.get(async (req, res, next) => {
   try {
     const questions = await Question.find({ _id: req.params.id });
     res.status(200).json({
@@ -103,6 +104,23 @@ router.route("/questions/:id").get(async (req, res, next) => {
       error: error.message,
     });
   }
-});
+})
+.patch(async (req, res, next) => {
+  try {
+    // console.log(req.params)
+    const questions = await Question.updateOne({ _id: req.params.id }, {status: 'approved' });
+    res.status(200).json({
+      status: "Success!",
+      message: "Question Successfully Loaded!",
+      data: questions,
+    });
+  } catch (error) {
+    res.status(400).send({
+      status: "Field!",
+      message: "Data Not Found",
+      error: error.message,
+    });
+  }
+})
 
 module.exports = router;
