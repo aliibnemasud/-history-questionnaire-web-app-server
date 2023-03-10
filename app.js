@@ -34,7 +34,7 @@ app.use("/", userRoutes);
 app.use("/", questionRoutes);
 
 app.post("/login", async (req, res) => {
-  console.log(req.decoded)
+  // console.log(req.decoded)
   const user = req.body;
   const accessToken = jwt.sign(user, process.env.SECRET_TOKEN);
   res.send({ accessToken });

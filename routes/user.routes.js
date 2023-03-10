@@ -66,9 +66,7 @@ router.route("/user")
 
   router.route("/user/validator")
   .get(async(req, res, next)=> {
-
-    console.log("calling....")
-
+    
     try {
       console.log('hello', req.query.email)
       const user = await User.findOne({email: req.query.email });
