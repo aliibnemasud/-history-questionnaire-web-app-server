@@ -123,4 +123,21 @@ router.route("/questions/:id")
   }
 })
 
+/// delete product
+
+.delete(async (req, res, next) => {  
+  try {
+    // console.log(req.params)
+    const questions = await Question.deleteOne({ _id: req.params.id });
+    res.status(200).json({
+      status: "Deleted Success!"      
+    });
+  } catch (error) {
+    res.status(400).send({
+      status: "Field to delete!",      
+      error: error.message,
+    });
+  }
+})
+
 module.exports = router;
